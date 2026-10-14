@@ -1,5 +1,4 @@
 from rich.console import Console
-from engine import Question
 
 console = Console()
 
@@ -57,3 +56,5 @@ while True:
     
     score, correct_count, total = play()
     show_results(score, correct_count, total)
+
+    
