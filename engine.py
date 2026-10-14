@@ -19,5 +19,33 @@ class Question:
     def correct_text(self):
         return self._option["ABCD".index(self._correct)]
     
+ROUND=5
 
-        
+class Match:
+    def __init__(self,player1,player2,questions):
+        if player1 == player2:
+            raise ValueError("نام دو بازیکن نمی تواند یکی باشد")  
+        if len(questions) < ROUND:
+            raise ValueError(f"tatad soal baid kam tar as tedad soal bashad")
+
+        self.__players: list[str] = [player1, player2]
+        self.__questions: list[Question] = list(questions)
+        self.__scores: dict[str, int] = {player1: 0, player2: 0}
+        self.__round: int = 0
+        self.__answers: dick[str, tuple[str, float]] = {}
+
+    @property
+    def players(self):
+        return list(self.__players)
+
+    @property
+    def round(self):
+        return self.__round
+
+
+    def score_of(self, player: str):
+        return self.__scores[player]
+
+    def answer_of(self, player: str):
+        return self.__answers[player]    
+    
