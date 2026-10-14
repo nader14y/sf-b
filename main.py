@@ -1,5 +1,6 @@
 from rich.console import Console
 from engine import Question
+import logging
 console = Console()
 
 questions = [
