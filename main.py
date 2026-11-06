@@ -12,9 +12,8 @@ questions = [
     Question("نماد شیمیایی طلا چیست؟", ["Ag", "Au", "Fe", "Gd"], "B"),
     Question("شاهنامه اثر کیست؟", ["حافظ", "سعدی", "فردوسی", "مولوی"], "C"),
 ]
-
 def show_menu():
-    console.print("\n[bold cyan]⚔  Quiz Battle  ⚔[/bold cyan]")
+    console.print("\n[bold cyan]Quiz Battle[/bold cyan]")
     console.print("[bold green]۱)[/bold green] بازی جدید")
     console.print("[bold red]۲)[/bold red] خروج")
 
@@ -24,19 +23,19 @@ def play():
     score = 0
     correct_count = 0
 
-    for i, (text, options, correct) in enumerate(questions, start=1):
-        console.print(f"\n[bold cyan]سؤال {i} از {total}:[/bold cyan] {text}")
-        for letter, opt in zip("ABCD", options):
+    for i, q in enumerate(questions, start=1):
+        console.print(f"\n[bold cyan]سؤال {i} از {total}:[/bold cyan] {q.text}")
+        for letter, opt in zip("ABCD", q.options):
             console.print(f"  [bold]{letter})[/bold] {opt}")
 
-        answer = input("جواب تو (A-D): ").strip().upper()
+        answer = input("جواب تو (A-D): ")
 
-        if answer == correct:
+        if q.is_correct(answer):
             console.print(" درست!", style="bold green")
             score += 10
             correct_count += 1
         else:
-            console.print(f" غلط! جواب درست: {correct}", style="bold red")
+            console.print(f" غلط! جواب درست: {q.correct}", style="bold red")
 
     return score, correct_count, total
 
