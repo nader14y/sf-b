@@ -19,9 +19,7 @@ class Question:
     def correct_text(self):
         return self._options["ABCD".index(self._correct)]
 
-
 class RoundResult:
-
     def __init__(self, status: str, points: int) -> None:
         self._status: str = status                 # "correct" یا "wrong" یا "too_late"
         self._points: int = points
@@ -41,8 +39,7 @@ POINTS = 10
 SPEED_BONUS = 3
 
 class Match:
-    """یک مسابقه‌ی دونفره‌ی ۵ راندی."""
-    
+    """یک مسابقه‌ی دونفره‌ی ۵ راندی.""" 
     def __init__(self, player1: str, player2: str, questions: list[Question]) -> None:
         if player1 == player2:
             raise ValueError("نام دو بازیکن نمی‌تواند یکی باشد")
