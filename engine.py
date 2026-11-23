@@ -81,7 +81,7 @@ class Match:
         """بررسی اتمام بازی"""
         return self._round >= ROUNDS
 
-    def winner(self) -> str | None:
+    def winner(self):
         """نمایش برنده. در صورت مساوی هیچکدام را برمیگرداند"""
         player1, player2 = self._players
         if self._scores[player1] == self._scores[player2]:
